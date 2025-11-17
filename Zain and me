@@ -77,7 +77,7 @@
         <section class="card hero">
           <div class="names">
             <div class="name-bubble zain">Zain</div>
-            <div class="tiny"> &mdash; your nickname here</div>
+            <div class="tiny"></div>
             <div style="flex:1"></div>
             <div class="name-bubble bray">Brayden</div>
           </div>
@@ -95,7 +95,7 @@
 
         <section class="card" style="margin-top:18px">
           <h3>Gallery/upload photos</h3>
-          <div class="small">You can add photos from your device. They stay in your browser (not uploaded to a server). When you're done, press <strong>Download this page</strong> to save a complete copy with your photos embedded.</div>
+          <div class="small"></div>
 
           <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
             <label class="upload">+ Add photos<input id="photoInput" type="file" accept="image/*" multiple></label>
@@ -121,7 +121,7 @@
 
         <section class="card" style="margin-top:18px">
           <h3>Letter / Notes to Zain</h3>
-          <div class="small">Write a private letter. It will be saved to your browser when you press "Save to browser" and embedded when you download the page.</div>
+          <div class="small"></div>
           <textarea id="letter" class="editable" style="width:100%;min-height:140px;margin-top:8px;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);">Dear Zain,
 
 Happy 1 year! ...</textarea>
@@ -131,16 +131,16 @@ Happy 1 year! ...</textarea>
 
       <aside>
         <div class="card">
-          <h4>Quick tips</h4>
+          <h4>Quick tip</h4>
           <ul class="small">
-            <li>Click any text on the page to edit it (everything is contenteditable).</li>
-            <li>Photos are stored locally in your browser (not online).</li>
-            <li>Use <strong>Download this page</strong> to get a standalone HTML file you can keep or send.</li>
+            <li>I</li>
+            <li>love</li>
+            <li>you</li>
           </ul>
         </div>
 
         <div class="card" style="margin-top:12px">
-          <h4>Embed a song or playlist</h4>
+          <h4>Kiss kiss I love you sm baby</h4>
           <div class="small">Paste a Spotify or YouTube link below and press Embed.</div>
           <input id="mediaUrl" placeholder="https://open.spotify.com/... or https://youtu.be/..." style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
           <div style="display:flex;gap:8px;margin-top:10px">
@@ -152,7 +152,7 @@ Happy 1 year! ...</textarea>
 
         <div class="card" style="margin-top:12px">
           <h4>Theme</h4>
-          <div class="small">Current palette: pink • black • red • blue • purple. You can tweak colors in the top of the HTML file if you want a different vibe.</div>
+          <div class="small">Hi beautiful</div>
         </div>
 
       </aside>
