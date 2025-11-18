@@ -112,48 +112,103 @@ Happy 1 year anniversary baby. You are literally everything to me. You're way mo
     </footer>
   </div>
 
-  <script>
-    const gallery = document.getElementById("gallery");
-    const input = document.getElementById("photoInput");
-    const clearGallery = document.getElementById("clearGallery");
+ <script>
+  const gallery = document.getElementById("gallery");
+  const input = document.getElementById("photoInput");
+  const clearGallery = document.getElementById("clearGallery");
 
-    function addThumb(dataUrl){
-      const wrap = document.createElement("div");
-      wrap.className="thumb";
+  // --- YOUR SCREENSHOT FILENAMES ---
+  const presetImages = [
+    "Screenshot 2025-11-17 7.16.22 PM.png",
+    "Screenshot 2025-11-17 7.16.53 PM.png",
+    "Screenshot 2025-11-17 7.16.58 PM.png",
+    "Screenshot 2025-11-17 7.17.01 PM.png",
+    "Screenshot 2025-11-17 7.17.29 PM.png",
+    "Screenshot 2025-11-17 7.17.41 PM.png",
+    "Screenshot 2025-11-17 7.17.58 PM.png",
+    "Screenshot 2025-11-17 7.18.01 PM.png",
+    "Screenshot 2025-11-17 7.18.10 PM.png",
+    "Screenshot 2025-11-17 7.18.30 PM.png",
+    "Screenshot 2025-11-17 7.19.53 PM.png",
+    "Screenshot 2025-11-17 7.20.03 PM.png",
+    "Screenshot 2025-11-17 7.20.16 PM.png",
+    "Screenshot 2025-11-17 7.20.20 PM.png",
+    "Screenshot 2025-11-17 7.21.03 PM.png",
+    "Screenshot 2025-11-17 7.21.20 PM.png",
+    "Screenshot 2025-11-17 7.21.25 PM.png",
+    "Screenshot 2025-11-17 7.21.33 PM.png",
+    "Screenshot 2025-11-17 7.21.44 PM.png",
+    "Screenshot 2025-11-17 7.21.55 PM.png",
+    "Screenshot 2025-11-17 7.22.22 PM.png",
+    "Screenshot 2025-11-17 7.22.31 PM.png",
+    "Screenshot 2025-11-17 7.22.37 PM.png",
+    "Screenshot 2025-11-17 7.22.44 PM.png",
+    "Screenshot 2025-11-17 7.22.51 PM.png",
+    "Screenshot 2025-11-17 7.22.56 PM.png",
+    "Screenshot 2025-11-17 7.23.01 PM.png",
+    "Screenshot 2025-11-17 7.23.07 PM.png",
+    "Screenshot 2025-11-17 7.23.12 PM.png",
+    "Screenshot 2025-11-17 7.23.27 PM.png",
+    "Screenshot 2025-11-17 7.23.32 PM.png",
+    "Screenshot 2025-11-17 7.23.43 PM.png",
+    "Screenshot 2025-11-17 7.23.47 PM.png",
+    "Screenshot 2025-11-17 7.23.57 PM.png",
+    "Screenshot 2025-11-17 7.24.01 PM.png",
+    "Screenshot 2025-11-17 7.24.11 PM.png",
+    "Screenshot 2025-11-17 7.24.21 PM.png",
+    "Screenshot 2025-11-17 7.24.29 PM.png",
+    "Screenshot 2025-11-17 7.24.36 PM.png",
+    "Screenshot 2025-11-17 7.24.51 PM.png",
+    "Screenshot 2025-11-17 7.25.01 PM.png",
+    "Screenshot 2025-11-17 7.25.09 PM.png",
+    "Screenshot 2025-11-17 7.25.16 PM.png",
+    "Screenshot 2025-11-17 7.25.20 PM.png",
+    "Screenshot 2025-11-17 7.25.30 PM.png",
+    "Screenshot 2025-11-17 7.25.38 PM.png",
+    "Screenshot 2025-11-17 7.25.41 PM.png",
+    "Screenshot 2025-11-17 7.25.46 PM.png",
+    "Screenshot 2025-11-17 7.25.53 PM.png"
+  ];
 
-      const img = document.createElement("img");
-      img.src = dataUrl;
+  function addThumb(src, caption = "Tap to caption") {
+    const wrap = document.createElement("div");
+    wrap.className = "thumb";
 
-      const cap = document.createElement("div");
-      cap.className="caption";
-      cap.contentEditable = true;
-      cap.innerText = "Tap to caption";
+    const img = document.createElement("img");
+    img.src = src;
 
-      wrap.appendChild(img);
-      wrap.appendChild(cap);
-      gallery.appendChild(wrap);
+    const cap = document.createElement("div");
+    cap.className = "caption";
+    cap.contentEditable = true;
+    cap.innerText = caption;
+
+    wrap.appendChild(img);
+    wrap.appendChild(cap);
+    gallery.appendChild(wrap);
+  }
+
+  // Load preset images from your GitHub root
+  presetImages.forEach(name => addThumb(name));
+
+  // Handle user uploads (kept your original functionality)
+  input.addEventListener("change", async (e) => {
+    const files = Array.from(e.target.files).slice(0, 24);
+    for (const f of files) {
+      const data = await fileToDataUrl(f);
+      addThumb(data);
     }
+    input.value = "";
+  });
 
-    input.addEventListener("change", async (e)=>{
-      const files = Array.from(e.target.files).slice(0,24);
-      for(const f of files){
-        const data = await fileToDataUrl(f);
-        addThumb(data);
-      }
-      input.value="";
+  function fileToDataUrl(file) {
+    return new Promise(res => {
+      const r = new FileReader();
+      r.onload = () => res(r.result);
+      r.readAsDataURL(file);
     });
+  }
 
-    function fileToDataUrl(file){
-      return new Promise(res=>{
-        const r=new FileReader();
-        r.onload=()=>res(r.result);
-        r.readAsDataURL(file);
-      });
-    }
-
-    clearGallery.addEventListener("click",()=>{
-      if(confirm("Clear all photos?")) gallery.innerHTML="";
-    });
-  </script>
-</body>
-</html>
+  clearGallery.addEventListener("click", () => {
+    if (confirm("Clear all photos?")) gallery.innerHTML = "";
+  });
+</script>
